@@ -1,6 +1,7 @@
 'use strict';
 var app = angular.module('videoStore',[]);
-app.controller('homeController', function() {
+app.controller('HomeController', ['$scope', function($scope) {
+
     var films=[
         {
             title:'ACADEMY DINOSAUR',
@@ -27,5 +28,12 @@ app.controller('homeController', function() {
             description:'A Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory'
         }
     ];
-    this.films = films;
-});
+    $scope.films = films;
+
+    $scope.showDetails = false;
+    $scope.toggleDetails = function() {
+        $scope.showDetails = !$scope.showDetails;
+    };
+
+}]);
+
