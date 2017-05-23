@@ -1,5 +1,7 @@
 'use strict';
 var app = angular.module('videoStore',[]);
+
+/*
 app.controller('HomeController', ['$scope', function($scope) {
 
     var films=[
@@ -36,6 +38,7 @@ app.controller('HomeController', ['$scope', function($scope) {
     };
 
 }]);
+*/
 
 app.controller('ContactController', ContactController);
 app.controller('FeedbackController', FeedbackController);
