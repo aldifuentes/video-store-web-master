@@ -1,6 +1,9 @@
 'use strict';
 angular.module('videoStore')
-    .service('filmService', function() {
+    .service('filmService', ['$http', 'baseURL', function($http,baseURL){
+
+/*
+.service('filmService', function() {
         var films=[
             {
                 title:'ACADEMY DINOSAUR',
@@ -27,9 +30,10 @@ angular.module('videoStore')
                 description:'A Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory'
             }
         ];
+    */
 
         function getFilms() {
-            return films;
+            return $http.get(baseURL+"films");
         }
         function getFilm(index) {
             return films[index];
@@ -39,8 +43,7 @@ angular.module('videoStore')
             getFilm: getFilm
         });
 
-
-    });
+    }]);
 
 
 

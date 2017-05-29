@@ -39,9 +39,11 @@ app.controller('HomeController', ['$scope', function($scope) {
 
 }]);
 */
+app.constant("baseURL","http://localhost:3000/");
 
 app.controller('ContactController', ContactController);
 app.controller('FeedbackController', FeedbackController);
+app.controller('FilmCommentController', FilmCommentController);
 
 ContactController.$inject = ['$scope'];
 function ContactController ($scope) {
@@ -78,4 +80,22 @@ function FeedbackController ($scope) {
             $scope.showMessage = true;
         }
     };
+}
+
+
+FilmCommentController.$inject = ['$scope'];
+function FilmCommentController() {
+
+
+//Paso 1: Crear un JavaScript object para guardar el nuevo component
+    $scope.submitComment = function () {
+//Paso 2: Esto es utilizado para guardar un nuevo date.
+//”El campo donde se va a guardar el date en el objeto JavaScript que va a guardar el
+        //nuevo comentario" = new Date().toISOString();
+        $scope.filmComment.date = new Date().toISOString();
+// Paso 3: “Push” el nuevo comentario dentro de todos los comentarios del film
+      //  $scope.film.comments.push(el objeto JavaScript para el comentario);
+//Paso 4: Reset el formulario con pristine
+//Paso 5: Reset el objeto javascript recientemente guardado
+    }
 }

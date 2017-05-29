@@ -71,6 +71,73 @@
       </div>
 	</div>
 
+    <div class="row row-content">
+        <div class="col-xs-12"> </div>
+        <div class="col-xs-12 col-sm-9" ng-controller="FilmCommentController">
+
+            <form class="form-horizontal" name="commentForm"
+                  ng-submit="sendComment()" novalidate>
+
+                <div class="form-group" ng-class="{ 'has-error' : commentForm.firstname.$error.required &&
+                    !commentForm.firstname.$pristine }">
+                    <label for="firstname" class="col-sm-2 control-label">Your Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="firstname" name="firstname"
+                               placeholder="Enter First Name"
+                               ng-model="comment.firstName" required>
+
+                        <span ng-show="commentForm.firstname.$error.required &&
+                        !commentForm.firstname.$pristine" class="help-block">Your name is
+                        required.</span>
+
+                    </div>
+
+
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error' : invalidChannelSelection}">
+                    <label for="ranking" class="col-sm-2 control-label">Number of Stars</label>
+
+                    <div class="col-sm-10">
+                        <input type="radio" name="starRate" id="one" value="one"/>
+                        <label for="one">1</label>
+
+                        <input type="radio" name="starRate" id="two" value="two"/>
+                        <label for="two">2</label>
+
+                        <input type="radio" name="starRate" id="three" value="three"/>
+                        <label for="three">3</label>
+
+                        <input type="radio" name="starRate" id="four" value="four"/>
+                        <label for="four">4</label>
+
+                        <input type="radio" name="starRate" id="five" value="five"/>
+                        <label for="five">5</label>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback" class="col-sm-2 control-label">Your Comment</label>
+                    <div class="col-sm-10">
+                            <textarea class="form-control" rows="12" ng-model="comment.comments">
+                            </textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary"
+                                ng-disabled="commentForm.$invalid">Send Comment</button>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
     <script src="../bower_components/angular/angular.min.js"></script>
 
     <script>
