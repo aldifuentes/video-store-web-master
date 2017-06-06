@@ -32,6 +32,17 @@ gulp.task('default', ['clean'], function() {
     gulp.start('usemin', 'imagemin','copyfonts');
 });
 
+
+gulp.task('usemin',['jshint'], function () {
+    return gulp.src(['./app/header.html', './app/index.html', './app/filmList.html', './app/contactus.html'])
+        .pipe(usemin({
+            css:[minifycss(),rev()],
+            js: [ngannotate(),uglify(),rev()]
+        }))
+        .pipe(gulp.dest('dist/'));
+});
+
+/*
 gulp.task('usemin',['jshint'], function () {
     return gulp.src(['./app/index.html', './app/filmList.html'])
         .pipe(usemin({
@@ -40,7 +51,7 @@ gulp.task('usemin',['jshint'], function () {
         }))
         .pipe(gulp.dest('dist/'));
 });
-
+*/
 /*
 gulp.task('usemin',['jshint'], function () {
     return gulp.src('./app/index.html')

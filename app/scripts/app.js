@@ -9,6 +9,10 @@ function Config($routeProvider) {
             templateUrl : 'filmList.html',
             controller : 'HomeController'
         })
+        .when('/contactus', {
+            templateUrl : 'contactus.html',
+            controller : 'ContactController'
+        })
         .otherwise('/filmList');
 }
 
