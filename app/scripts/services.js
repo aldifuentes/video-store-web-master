@@ -36,6 +36,7 @@ angular.module('videoStore')
             return $http.get(baseURL+"films");
         }
         function getFilm(index) {
+            console.log(films);
             return films[index];
         }
         return ({

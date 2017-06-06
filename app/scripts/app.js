@@ -1,5 +1,18 @@
 'use strict';
-var app = angular.module('videoStore',[]);
+var app = angular.module('videoStore', ['ngRoute'])
+    .config(Config)
+Config.$inject = ['$routeProvider']
+
+function Config($routeProvider) {
+    $routeProvider
+        .when('/filmList', {
+            templateUrl : 'filmList.html',
+            controller : 'HomeController'
+        })
+        .otherwise('/filmList');
+}
+
+app.constant("baseURL","http://localhost:3000/");
 
 /*
 app.controller('HomeController', ['$scope', function($scope) {
@@ -39,7 +52,6 @@ app.controller('HomeController', ['$scope', function($scope) {
 
 }]);
 */
-app.constant("baseURL","http://localhost:3000/");
 
 app.controller('ContactController', ContactController);
 app.controller('FeedbackController', FeedbackController);

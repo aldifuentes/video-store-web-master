@@ -1,0 +1,30 @@
+
+<div class="container"​>
+
+    <div class="row row-content" ng-controller="HomeController">
+        <button ng-click="toggleDetails()" class="btn btn-xs btn-primary pull-right" type="button">
+            {{showDetails ? 'Hide Details':'Show Details'}}
+        </button>
+        <div class="col-xs-12">
+            <div class="media-list">
+                <div class="media" ng-repeat="film in films">
+                    <div class="media-left media-middle">
+                        <a href="#/">
+                            <img class="media-object img-thumbnail" width="150" height="150"
+                                 ng-src={{film.image}} alt="video store">
+                        </a>
+                    </div>
+                    <div class="media-body">
+
+                        <h2 class="media-heading">
+                            <a ng-href="#!/filmList/{{film.id}}">{{film.title}}</a>
+
+                            <span class="label label-danger">{{film.release}}</span>
+                            <span class="badge">{{film.price | currency}}</span></h2>
+                        <p ng-show="showDetails">{{film.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
